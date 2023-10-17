@@ -9,9 +9,13 @@ import (
 const CTRLQ = 17
 const BACKSPACE = 127
 const ENTER = 13
-const ARROW_ESC = 033
+const ARROW_UP = 'A'
+const ARROW_DOWN = 'B'
+const ARROW_RIGHT = 'C'
+const ARROW_LEFT = 'D'
 
 func ProcessKeyPress(c byte, ISRUNNING *bool, editor *editor.Editor) {
+    // reader := bufio.NewReader(os.Stdin)
     switch c {
     case BACKSPACE: 
         output := []byte("\b \b")
@@ -20,10 +24,14 @@ func ProcessKeyPress(c byte, ISRUNNING *bool, editor *editor.Editor) {
         *ISRUNNING = false
     case ENTER:
         os.Stdout.Write([]byte("\n\r"))
-    case ARROW_ESC:
-            // if cBuff[0] == '[' {
-            //     os.Stdout.Write([]byte("~\033[0;0H"))
-            // }
+    case ARROW_UP:
+        os.Stdout.Write([]byte("\033[0;0H"))
+    case ARROW_DOWN:
+        os.Stdout.Write([]byte("\033[0;0H"))
+    case ARROW_LEFT:
+        os.Stdout.Write([]byte("\033[0;0H"))
+    case ARROW_RIGHT:
+        os.Stdout.Write([]byte("\033[0;0H"))
     default:
         fmt.Printf("%c", c)
     }
