@@ -25,13 +25,13 @@ func ProcessKeyPress(c byte, ISRUNNING *bool, editor *editor.Editor) {
     case ENTER:
         os.Stdout.Write([]byte("\n\r"))
     case ARROW_UP:
-        os.Stdout.Write([]byte("\033[0;0H"))
+        editor.MoveCursorUp()
     case ARROW_DOWN:
-        os.Stdout.Write([]byte("\033[0;0H"))
+        editor.MoveCursorDown()
     case ARROW_LEFT:
-        os.Stdout.Write([]byte("\033[0;0H"))
+        os.Stdout.Write([]byte("\033[1D"))
     case ARROW_RIGHT:
-        os.Stdout.Write([]byte("\033[0;0H"))
+        os.Stdout.Write([]byte("\033[1C"))
     default:
         fmt.Printf("%c", c)
     }

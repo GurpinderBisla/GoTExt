@@ -1,4 +1,4 @@
-module Gurpinder/goText
+module goText
 
 go 1.20
 
