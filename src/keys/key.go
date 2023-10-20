@@ -29,9 +29,9 @@ func ProcessKeyPress(c byte, ISRUNNING *bool, editor *editor.Editor) {
     case ARROW_DOWN:
         editor.MoveCursorDown()
     case ARROW_LEFT:
-        os.Stdout.Write([]byte("\033[1D"))
+        editor.MoveCursorLeft()
     case ARROW_RIGHT:
-        os.Stdout.Write([]byte("\033[1C"))
+        editor.MoveCursorRight()
     default:
         fmt.Printf("%c", c)
     }
